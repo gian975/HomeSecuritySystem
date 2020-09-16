@@ -1,0 +1,36 @@
+PB6 PB7 -> I2C per eprom e rtc: attivazione DMA in ricezione e trasmissione
+
+PA2 PA3 -> USART: attivazione global interrupt NVIC, baud rate 9600
+
+PB5 -> Pin per LED (GPIO-Output) [Status_LED]
+PA5 PA6 PA8 PA9 -> Pin per Tastierino (EXTI per interruzioni)
+PB1 PB12 PB13 PB14 -> Pin per Tastirino (GPIO-Output) 
+PB4 -> Laser Activation per LDR [Activation_LASER]
+//fatto in digitale ma il prof lo vuole in analogico (fonte Carmine ricevimento)
+PC1 -> Pin per Light Dependent Resistor (LDR) (ADC1_IN11)[Pin_BARRIER]
+PC7 -> Pin per PIR (GPIO-input) [EXTI_PIR]
+//sostituzione da PA1 a PC7 per avere le interruzioni rising_falling associate ai sensori
+//la modalitàè associata alla porta
+
+PA0 -> Pin per Active Buzzer (PWM1-Channel1) [Pin_BUZZER]
+PA10 -> Testing LED
+
+TIM3 -> timer per 10 secondi di log
+TIM11 -> Timer per delay PIR
+TIM10 -> Timer per delay LDR
+TIM2 -> Timer per controllo analogico del buzzer
+
+1) REALIZZARE USART per LETTURA CONFIGURAZIONE INIZIALE
+	--> Realizzare UART
+	--> tastierino
+
+2) IMPLEMENTAZIONE SENSORI
+	--> Per ogni sensore: sensore.c sensore.h(contiene anche gli stati)
+	--> Buzzer 
+	--> Merge tra i sensori e buzzer
+
+3) Protocollo
+
+4) RTC
+	--> Implementazione del SystemLog
+
